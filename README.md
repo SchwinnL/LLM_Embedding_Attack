@@ -3,6 +3,10 @@
 This is the repository of "[Adversarial Attacks and Defenses in Large Language Models: Old and New Threats
 ](https://arxiv.org/abs/2310.19737)" by [Leo Schwinn](https://schwinnl.github.io/), David Dobre, [Stephan Günnemann](https://www.professoren.tum.de/guennemann-stephan), and [Gauthier Gidel](https://gauthiergidel.github.io/) which was accepted at the *NeurIPS 2023 ICBINB Workshop* for spotlight presentation.
 
+## Work In Progress
+
+The code is currently being refactored and new experiments concerning attacks on unlearned models and universal embedding space attacks will be added soon. If you have any questions, please send an email to l.schwinn@tum.de
+
 ## Disclamimer 
 
 In this work, we want to highlight the safety vulnerabilities of LLMs. As powerful LLM assistants are readily available and machine-learning robustness has been an unsolved research problem for the last decade, we believe that the best way to approach this problem is through culminating awareness. 
