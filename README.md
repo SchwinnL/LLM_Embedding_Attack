@@ -5,7 +5,7 @@ This is the repository of "[Adversarial Attacks and Defenses in Large Language M
 
 ## Work In Progress
 
-The code is currently being refactored and new experiments concerning attacks on unlearned models and universal embedding space attacks will be added soon. If you have any questions, please send an email to l.schwinn@tum.de
+The code is currently being refactored and new experiments concerning attacks on unlearned models and universal embedding space attacks will be added soon. If you have any questions, please send an email to l.schwinn[at]tum[dot]de
 
 ## Disclamimer 
 
