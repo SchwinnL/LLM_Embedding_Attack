@@ -3,9 +3,10 @@
 This is the repository of "[Adversarial Attacks and Defenses in Large Language Models: Old and New Threats
 ](https://arxiv.org/abs/2310.19737)" by [Leo Schwinn](https://schwinnl.github.io/), David Dobre, [Stephan Günnemann](https://www.professoren.tum.de/guennemann-stephan), and [Gauthier Gidel](https://gauthiergidel.github.io/) which was accepted at the *NeurIPS 2023 ICBINB Workshop* for spotlight presentation.
 
-## Work In Progress
+## Unlearning
 
-The code is currently being refactored and new experiments concerning attacks on unlearned models and universal embedding space attacks will be added soon. If you have any questions, please send an email to l.schwinn[at]tum[dot]de
+Unlearning experiments are now provided in 'embedding_attack_unlearning.py'
+The script can also be used for toxicity experiments with universal attacks.
 
 ## Disclamimer 
 

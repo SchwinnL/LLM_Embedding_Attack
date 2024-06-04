@@ -1,12 +1,13 @@
-""" 
+"""
 Inspired by the llm-attacks project: https://github.com/llm-attacks/llm-attacks
 
 Run:
 
-    python embedding_attack_submission.py --help 
+    python embedding_attack_submission.py --help
 
 for more information.
 """
+
 import csv
 import torch
 import torch.nn as nn
@@ -34,9 +35,7 @@ def load_model_and_tokenizer(model_path, tokenizer_path=None, device="cuda:0", *
 
     tokenizer_path = model_path if tokenizer_path is None else tokenizer_path
 
-    tokenizer = AutoTokenizer.from_pretrained(
-        tokenizer_path, trust_remote_code=True, use_fast=False
-    )
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, trust_remote_code=True, use_fast=False)
 
     if "oasst-sft-6-llama-30b" in tokenizer_path:
         tokenizer.bos_token_id = 1
@@ -81,17 +80,13 @@ def generate(model, input_embeddings, num_tokens=50):
         print("Generating...")
         for _ in tqdm.tqdm(range(num_tokens)):
             # Generate text token by token
-            logits = model(
-                input_ids=None, inputs_embeds=input_embeddings
-            ).logits  # , past_key_values=past)
+            logits = model(input_ids=None, inputs_embeds=input_embeddings).logits  # , past_key_values=past)
 
             # Get the last predicted token (greedy decoding)
             predicted_token = torch.argmax(logits[:, -1, :])
 
             # Append the predicted token to the generated tokens
-            generated_tokens = torch.cat(
-                (generated_tokens, predicted_token.unsqueeze(0))
-            )  # , dim=1)
+            generated_tokens = torch.cat((generated_tokens, predicted_token.unsqueeze(0)))  # , dim=1)
 
             # get embeddings from next generated one, and append it to input
             predicted_embedding = embedding_matrix[predicted_token]
@@ -107,7 +102,8 @@ def calc_loss(model, embeddings, embeddings_attack, embeddings_target, targets):
     logits = model(inputs_embeds=full_embeddings).logits
     loss_slice_start = len(embeddings[0]) + len(embeddings_attack[0])
     loss = nn.CrossEntropyLoss()(logits[0, loss_slice_start - 1 : -1, :], targets)
-    return loss, logits[:, loss_slice_start - 4:-1, :]
+    return loss, logits[:, loss_slice_start - 4 : -1, :]
+
 
 def create_one_hot_and_embeddings(tokens, embed_weights, model):
     one_hot = torch.zeros(
@@ -134,9 +130,9 @@ def run(
     print_interval: int = 5,
     generate_interval: int = 500,
     seed: int = 42,
-    load_dataset = True,
-    verbose = False,
-    early_stopping = True,
+    load_dataset=True,
+    verbose=False,
+    early_stopping=True,
 ):
     """
     Embedding space attack on Llama2.
@@ -173,10 +169,9 @@ def run(
     )
     embed_weights = get_embedding_matrix(model)
 
-
     if load_dataset:
         filename = "harmful_behaviors.csv"
-        reader = csv.reader(open(filename, 'r'))
+        reader = csv.reader(open(filename, "r"))
         next(reader)
     else:
         print(f"Fixed prompt:\t '{fixed_prompt}'")
@@ -201,14 +196,10 @@ def run(
         # inputs
         one_hot_inputs, embeddings = create_one_hot_and_embeddings(input_tokens, embed_weights, model)
         # attack
-        one_hot_attack, embeddings_attack = create_one_hot_and_embeddings(
-            attack_tokens, embed_weights, model
-        )
+        one_hot_attack, embeddings_attack = create_one_hot_and_embeddings(attack_tokens, embed_weights, model)
         # one_hot_attack, embeddings_attack = one_hot_attack[1:], embeddings_attack[1:]
         # targets
-        one_hot_target, embeddings_target = create_one_hot_and_embeddings(
-            target_tokens, embed_weights, model
-        )
+        one_hot_target, embeddings_target = create_one_hot_and_embeddings(target_tokens, embed_weights, model)
         # one_hot_target, embeddings_target = one_hot_target[1:], embeddings_target[1:]
 
         adv_pert = torch.zeros_like(embeddings_attack, requires_grad=True, device=device)
@@ -256,6 +247,7 @@ def run(
 
         n += 1
         print(f"Successful attacks: {successful_attacks}/{n} \nAverage steps: {total_steps/n}")
+
 
 if __name__ == "__main__":
     run()
