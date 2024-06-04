@@ -3,10 +3,14 @@
 This is the repository of "[Adversarial Attacks and Defenses in Large Language Models: Old and New Threats
 ](https://arxiv.org/abs/2310.19737)" by [Leo Schwinn](https://schwinnl.github.io/), David Dobre, [Stephan Günnemann](https://www.professoren.tum.de/guennemann-stephan), and [Gauthier Gidel](https://gauthiergidel.github.io/) which was accepted at the *NeurIPS 2023 ICBINB Workshop* for spotlight presentation.
 
+See ```embedding_attack_toxic.py```
+
 ## Unlearning
 
-Unlearning experiments are now provided in 'embedding_attack_unlearning.py'
-The script can also be used for toxicity experiments with universal attacks.
+This repository also contains the code of "[Soft Prompt Threats: Attacking Safety Alignment and Unlearning in Open-Source LLMs through the Embedding Space](https://arxiv.org/pdf/2402.09063)" by [Leo Schwinn](https://schwinnl.github.io/), David Dobre, Sophie Xhonneux, [Gauthier Gidel](https://gauthiergidel.github.io/), and [Stephan Günnemann](https://www.professoren.tum.de/guennemann-stephan).
+
+See ```embedding_attack_unlearning.py``` and ```unlearning_utils.py```
+The script can also be used for toxicity experiments with individual and universal attacks.
 
 ## Disclamimer 
 
@@ -35,11 +39,17 @@ Some code snippets are taken from https://github.com/llm-attacks/llm-attacks
 If you use this repository in your research, please consider citing:
 
 ```	
-@misc{schwinn2023adversarial,
-      title={Adversarial Attacks and Defenses in Large Language Models: Old and New Threats}, 
-      author={Leo Schwinn and David Dobre and Stephan G\"unnemann and Gauthier Gidel},
-      year={2023},
-      eprint={2310.19737},
-      archivePrefix={arXiv},
+@article{schwinn2023adversarial,
+  title={Adversarial attacks and defenses in large language models: Old and new threats},
+  author={Schwinn, Leo and Dobre, David and G{\"u}nnemann, Stephan and Gidel, Gauthier},
+  journal={arXiv preprint arXiv:2310.19737},
+  year={2023}
+}
+
+@article{schwinn2024soft,
+  title={Soft Prompt Threats: Attacking Safety Alignment and Unlearning in Open-Source LLMs through the Embedding Space},
+  author={Schwinn, Leo and Dobre, David and Xhonneux, Sophie and Gidel, Gauthier and Gunnemann, Stephan},
+  journal={arXiv preprint arXiv:2402.09063},
+  year={2024}
 }
 ```
