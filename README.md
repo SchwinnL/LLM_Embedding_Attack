@@ -27,12 +27,24 @@ Within embedding space attacks we exploit that once an LLM starts giving an affi
 
 ## Experiments
 
-The embedding space attack experiment from the paper can be reproduced by running 
+The experiments in "Adversarial attacks and defenses in large language models: Old and new threats" can be reproduced by running 
 ```
-embedding_attack_submission.py
+embedding_attack_toxic.py
 ```
 
 Some code snippets are taken from https://github.com/llm-attacks/llm-attacks
+
+For experiments related to "Soft Prompt Threats: Attacking Safety Alignment and Unlearning in Open-Source LLMs through the Embedding Space" see
+
+```
+embedding_attack_unlearning.py
+```
+
+## Version compatible with HarmBench
+
+A stronger version of embedding space attacks integrated into the Harmbench framework can be found here:
+
+[https://github.com/SchwinnL/circuit-breakers-eval](https://github.com/SchwinnL/circuit-breakers-eval)
 
 ## Cite
 
