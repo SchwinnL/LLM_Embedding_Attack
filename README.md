@@ -5,6 +5,13 @@ This is the repository of "[Adversarial Attacks and Defenses in Large Language M
 
 See ```embedding_attack_toxic.py```
 
+## New Version compatible with HarmBench
+
+A stronger version of embedding space attacks integrated into the Harmbench framework can be found here:
+
+[https://github.com/SchwinnL/circuit-breakers-eval](https://github.com/SchwinnL/circuit-breakers-eval)
+
+
 ## Unlearning
 
 This repository also contains the code of "[Soft Prompt Threats: Attacking Safety Alignment and Unlearning in Open-Source LLMs through the Embedding Space](https://arxiv.org/pdf/2402.09063)" by [Leo Schwinn](https://schwinnl.github.io/), David Dobre, Sophie Xhonneux, [Gauthier Gidel](https://gauthiergidel.github.io/), and [Stephan Günnemann](https://www.professoren.tum.de/guennemann-stephan).
@@ -39,12 +46,6 @@ For experiments related to "Soft Prompt Threats: Attacking Safety Alignment and 
 ```
 embedding_attack_unlearning.py
 ```
-
-## Version compatible with HarmBench
-
-A stronger version of embedding space attacks integrated into the Harmbench framework can be found here:
-
-[https://github.com/SchwinnL/circuit-breakers-eval](https://github.com/SchwinnL/circuit-breakers-eval)
 
 ## Cite
 
